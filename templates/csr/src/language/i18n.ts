@@ -1,0 +1,13 @@
+import { createI18n } from "vue-i18n";
+import messages from "./index";
+import { getLocalStore } from "helper/utils";
+import { LANG_KEY } from "config/others";
+
+const lang = getLocalStore(LANG_KEY) || "<%= language %>";
+
+const i18n = createI18n({
+  locale: lang,
+  messages,
+});
+
+export default i18n;

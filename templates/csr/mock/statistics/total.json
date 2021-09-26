@@ -1,0 +1,16 @@
+{
+  "method": "get",
+  "response": {
+    "code": "0",
+    "msg": "success",
+    "data": {
+      "articles": 546554,
+      "resources": 84561,
+      "visits": 987654,
+      "tourist": 1234567,
+      "secreat": 233,
+      "men": 666,
+      "women": 888
+    }
+  }
+}

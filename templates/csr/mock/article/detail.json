@@ -1,0 +1,25 @@
+{
+  "method": "get",
+  "response": {
+    "code": "0",
+    "msg": "success",
+    "data": {
+      "cate": [456, 999],
+      "collect": 1,
+      "coms": 0,
+      "ctime": "2021-01-04 20:02:53",
+      "detail": "##\t背景\n一个前端项目稳定运行一段时间以后。\n\n突然有一天，后台同学找到你，告诉你<font\t\tcolor=violet>原先的Student.name要改成Student.fullName</font>，你崩溃了，一遍遍去查代码，查找Student.name，一遍遍测试，确保修改不会有问题。\n\n终于，你成功把Student.name都改成了Student.fullName。\n\n然而，没过几天，某个一直正常的功能突然不能使用了，你开始调试，发现<font\t color=violet>原先整数类型的age突然变成字符串类型了</font>，你找到后台，后台同学来了一句<font\t color=blue>“前端不做检验吗？”</font>，你心态再一次崩溃了...\n\n##\t思考\n<font\t color=violet>下次会改什么字段，下次哪个字段会出问题（{{{瑟瑟发抖}}}）</font>\n\n``有什么办法可以一劳永逸地解决这个问题呢？\n有点oop编程语言基础的，马上就会想到，这不就是加个<font\t color=red>adapter</font>的事吗？很多语言都内置adaapter，可是ts没有呀，那咋整？\n\n算了，干脆自己造个轮子\n\n##\t解决方案\n<font\t color=violet>自己用ts造个api适配器</font>\n\n废话不多说，直接上成品：[type-json-mapper](https://github.com/Hlianfa/type-json-mapper)\n\n###\t安装\n```bash\t\nnpm install type-json-mapper --save\n```\n###\t装饰器\n采用装饰器对类属性进行处理，内置三种装饰器：\n\n###\t<font\t color=orangered>@mapperProperty($apiName, type)</font>\n基本数据类型使用该装饰器\n\n接收两个参数：\n\n<font\t color=violet>$apiName</font>：接口字段名\n\n<font\t color=violet>type</font>：(可选)字段转换类型（可选值：'string' | 'int' | 'flot' | 'boolean' | 'date' | 'time' | 'datetime'）\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n###\t<font\t\tcolor=orangered>@deepMapperProperty ($apiName, Class)</font>\n自定义类型/数组使用该装饰器\n\n接收两个参数：\n\n<font\t color=violet>$apiName</font>：接口字段名\n\n<font\t color=violet>Class</font>：自定义类\n\n###\t<font\t color=orangered>@filterMapperProperty($apiName, filterFunc)</font>\n接收两个参数：\n\n<font\t color=violet>$apiName</font>：接口字段名\n\n<font\t color=violet>filterFunc</font>：自定义过滤器函数\n```js\t\nconst filterFunc = (value) => {\n return 'translated text';\n}\n```\n\n###\t反序列化\n内置两种反序列化函数\n###\t<font\t color=orangered>deserialize(Clazz, json)</font>\n反序列化json对象\n\n接收三个参数：\n\n<font\t color=violet>Clazz</font>：自定义类型\n\n<font\t color=violet>json</font>：待反序列化对象\n\n###\t<font\t color=orangered>deserializeArr(Clazz, jsonArr)</font>\n\n反序列化数组\n\n接收三个参数：\n\n<font\t color=violet>Clazz</font>：自定义类型\n\n<font\t color=violet>jsonArr</font>：待反序列化数组\n\n###\t使用示例\n首先，我们需要造几个类，给类属性加上type-json-mapper内置的装饰器，<font\t color=red>不要忘记在构造函数内初始化类属性</font>\n```typescript\t\nimport { mapperProperty, deepMapperProperty, filterMapperProperty } from \"type-json-mapper\";\n\nclass Lesson {\n  @mapperProperty(\"ClassName\")\n  public name: string;\n  @mapperProperty(\"Teacher\")\n  public teacher: string;\n  @mapperProperty(\"DateTime\", \"datetime\")\n  public datetime: string;\n\n  constructor() {\n    this.name = \"\";\n    this.teacher = \"\";\n    this.datetime = \"\";\n  }\n}\n\nclass Address {\n  public province: string;\n  public city: string;\n  @mapperProperty(\"full_address\")\n  public fullAddress: string;\n\n  constructor() {\n    this.province = \"\";\n    this.city = \"\";\n    this.fullAddress = \"\";\n  }\n}\n\nclass Student {\n  @mapperProperty(\"StudentID\", \"string\")\n  public id: string;\n  @mapperProperty(\"StudentName\", \"string\")\n  public name: string;\n  @mapperProperty(\"StudentAge\", \"int\")\n  public age: number;\n  @filterMapperProperty(\"StudentSex\", (val) => {\n    const map = { 1: '男生', 2: '女生'};\n    return map[val];\n  })\n  public sex: string;\n  @deepMapperProperty(\"Address\", Address)\n  public address?: Address;\n  @deepMapperProperty(\"Lessons\", Lesson)\n  public lessons?: Lesson[];\n\n  constructor() {\n    this.id = \"\";\n    this.name = \"\";\n    this.age = 0;\n    this.sex = 0;\n    this.address = undefined;\n    this.lessons = undefined;\n  }\n}\n```\n接口返回数据：\n```js\t\nlet json = {\n  StudentID: \"123456\",\n  StudentName: \"李子明\",\n  StudentAge: \"9\",\n  StudentSex: \"1\",\n  Address: {\n    province: \"广东\",\n    city: \"深圳\",\n    full_address: \"xxx小学三年二班\",\n  },\n  Lessons: [\n    {\n      ClassName: \"中国上下五千年\",\n      Teacher: \"建国老师\",\n      DateTime: 1609430399000,\n    },\n  ],\n};\n```\n开始转换\n```typescript\nimport { deserialize } from 'type-json-mapper';\ntry {\n  const student = deserialize(Student, json);\n  console.dir(student);\n} catch(err) {\n  console.error(err);\n}\n```\n\n<img\tstyle=\"width:30%\"\tsrc=\"//i.loli.net/2021/04/09/kPJW6Nn5gduBZXq.png\"/>\n",
+      "id": "fCiXD8OBn",
+      "like": 1,
+      "mtime": "2021-04-09 15:10:23",
+      "state": 2,
+      "tag": [
+        "abc",
+        "dfg"
+      ],
+      "title": "适合ts项目的api接口数据适配器type-json-mapper",
+      "uploader": "西瓜",
+      "watch": 50
+    }
+  }
+}

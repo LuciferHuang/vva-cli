@@ -1,0 +1,28 @@
+{
+  "name": "vva-cli",
+  "version": "0.0.0",
+  "description": "A CLI of Vue 3 and Typescript and Element-plus in Vite",
+  "main": "index.js",
+  "bin": {
+    "vva-cli": "index.js"
+  },
+  "scripts": {},
+  "keywords": ["Vue3", "Typescript", "Element-plus", "Vite", "CSR", "SSR", "i18n", "Vuex", "Vue-router", "Koa"],
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "inquirer": "^8.1.5",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "wrap-ansi": "^8.0.1"
+  },
+  "author": "HLianfa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hlianfa/vva-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hlianfa/vva-cli/issues"
+  },
+  "homepage": "https://github.com/Hlianfa/vva-cli/blob/master/README.md"
+}

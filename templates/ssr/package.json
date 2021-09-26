@@ -1,0 +1,52 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node --loader ts-node/esm ./server/server.ts",
+    "dev:mock": "node --loader ts-node/esm ./server/mock.ts",
+    "build:client": "vue-tsc --noEmit &&vite build --outDir dist/client --ssrManifest",
+    "build:server": "vite build --outDir dist/server --ssr src/framework/entry-server.ts ",
+    "build": "npm run build:client && npm run build:server",
+    "start": "cross-env NODE_ENV=production node --loader ts-node/esm ./server/server.ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "echarts": "^5.2.0",
+    "element-plus": "^1.1.0-beta.9",
+    "express": "^4.17.1",
+    "highlight.js": "^11.2.0",
+    "js-md5": "^0.7.3",
+    "koa": "^2.13.1",
+    "koa-cors": "^0.0.16",
+    "koa-static": "^5.0.0",
+    "markdown-it": "^12.0.3",
+    "markdown-it-link-attributes": "^3.0.0",
+    "memoize-one": "^5.2.1",
+    "qs": "^6.10.1",
+    "viewerjs": "^1.10.1",
+    "vue": "^3.2.6",
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@types/node": "^16.9.6",
+    "@vitejs/plugin-legacy": "^1.5.3",
+    "@vitejs/plugin-vue": "^1.6.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "node-sass": "^6.0.1",
+    "path": "^0.12.7",
+    "pretty-bytes": "^5.6.0",
+    "sass": "^1.39.0",
+    "sass-loader": "^12.1.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3",
+    "vite": "^2.5.2",
+    "vue-tsc": "^0.2.2",
+    "wrap-ansi": "^7.0.0"
+  }
+}

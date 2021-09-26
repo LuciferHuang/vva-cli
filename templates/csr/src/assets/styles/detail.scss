@@ -1,0 +1,75 @@
+@import "highlight.js/scss/xcode.scss";
+.detail-head {
+  font-weight: bold;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.detail-title {
+  font: {
+    weight: bold;
+    size: 18px;
+  }
+}
+.detail-type {
+  vertical-align: text-bottom;
+  margin-left: 12px;
+}
+.detail-content {
+  user-select: none;
+  padding: 8px 20px;
+  border: 1px dashed #bdbdbd;
+  border-radius: 3px;
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    th {
+      background: #eee;
+      text-align: center;
+      font-weight: bold;
+    }
+    td,
+    th {
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5;
+    }
+  }
+  pre {
+    position: relative;
+    padding: 16px;
+    line-height: 1.45;
+    background-color: rgb(246, 248, 250);
+    border-radius: 3px;
+    font: {
+      size: 85%;
+    }
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      background: #fff;
+      color: black;
+      code {
+        font: {
+          weight: 400;
+          size: 15.8px;
+        }
+      }
+    }
+  }
+  blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+  }
+}
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  .el-button {
+    height: 100%;
+    border-radius: 0;
+    margin-left: 0;
+    padding: 15px 32px;
+  }
+}

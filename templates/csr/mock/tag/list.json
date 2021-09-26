@@ -1,0 +1,27 @@
+{
+  "method": "get",
+  "response": {
+    "code": "0",
+    "msg": "success",
+    "data": {
+      "total": 3,
+      "list": [
+        {
+          "id": "abc",
+          "text": "Javascript",
+          "ctime": "2021-08-08 05:20:00"
+        },
+        {
+          "id": "dfg",
+          "text": "TypeScript",
+          "ctime": "2021-08-08 05:20:00"
+        },
+        {
+          "id": "hij",
+          "text": "Mysql",
+          "ctime": "2021-08-08 05:20:00"
+        }
+      ]
+    }
+  }
+}

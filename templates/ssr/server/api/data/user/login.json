@@ -1,0 +1,11 @@
+{
+  "code": "0",
+  "msg": "success",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ABCDEFGHIJKLMNOPQabcdefg.ABCDEFG-HIJKLMNOPQabcdefg",
+    "user_info": {
+      "name": "admin",
+      "mail": "1915044279@qq.com"
+    }
+  }
+}
