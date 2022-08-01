@@ -6,6 +6,7 @@ import { LANG_KEY } from "config/others";
 const lang = getLocalStore(LANG_KEY) || "<%= language %>";
 
 const i18n = createI18n({
+  legacy: false,
   locale: lang,
   messages,
 });
