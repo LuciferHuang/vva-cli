@@ -1,6 +1,6 @@
 {
   "name": "vva-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A CLI of Vue 3 and Typescript and Element-plus in Vite",
   "main": "index.js",
   "bin": {
