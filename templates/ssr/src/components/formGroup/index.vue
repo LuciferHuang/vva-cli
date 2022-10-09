@@ -97,16 +97,7 @@
   </el-form>
 </template>
 <script lang="ts">
-import {
-  ElForm,
-  ElFormItem,
-  ElInput,
-  ElCheckboxGroup,
-  ElCheckbox,
-  ElRadioGroup,
-  ElRadio,
-  ElPopover,
-} from "element-plus";
+import { ElForm } from "element-plus";
 import { defineComponent, PropType, reactive, ref, watch } from "vue";
 import { objDeepCopy } from "helper/utils";
 import smartBox from "components/smartBox/index.vue";
@@ -117,14 +108,6 @@ import { FormItem, FormRule } from ".";
 
 export default defineComponent({
   components: {
-    ElForm,
-    ElFormItem,
-    ElInput,
-    ElCheckboxGroup,
-    ElCheckbox,
-    ElRadioGroup,
-    ElRadio,
-    ElPopover,
     smartBox,
     selectBox,
     casCarder,

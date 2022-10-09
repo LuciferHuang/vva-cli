@@ -39,7 +39,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 // 组件
-import { ElAffix } from "element-plus";
 import filterGroup from "components/filterGroup/index.vue";
 import tableOprate from "components/tableOprate/index.vue";
 import pageTable from "components/pageTable/index.vue";
@@ -54,7 +53,6 @@ import useDialogFeature from "./hooks/useListDialog";
 
 export default defineComponent({
   components: {
-    ElAffix,
     filterGroup,
     tableOprate,
     pageTable,

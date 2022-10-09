@@ -20,13 +20,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { ElButton } from "element-plus";
 import { OperateBtn } from ".";
 
 export default defineComponent({
-  components: {
-    ElButton,
-  },
   props: {
     buttonGrop: {
       type: Array as PropType<OperateBtn[]>,

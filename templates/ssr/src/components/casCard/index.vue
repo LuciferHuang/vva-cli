@@ -19,15 +19,10 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, reactive, watch } from "vue";
-import { ElSelect, ElOption } from "element-plus";
 import http from "helper/http";
 import { CascarderConfig } from "./index";
 
 export default defineComponent({
-  components: {
-    ElSelect,
-    ElOption,
-  },
   props: {
     modelValue: { default: () => [], required: true },
     config: { type: Object as PropType<CascarderConfig>, required: true },

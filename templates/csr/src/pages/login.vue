@@ -201,11 +201,14 @@ $light-color: #08d3f9;
         width: 100%;
         height: 100%;
         padding-top: 25px;
-        input {
-          font-size: 18px;
-          color: #fff;
+        .el-input__wrapper {
           background-color: transparent;
           border: none;
+          box-shadow: none;
+          input {
+            font-size: 18px;
+            color: #fff;
+          }
         }
         .el-input__suffix {
           height: unset;

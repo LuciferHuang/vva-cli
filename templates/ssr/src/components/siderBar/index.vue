@@ -43,16 +43,10 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from "vue";
-import { ElMenu, ElMenuItem, ElSubMenu } from "element-plus";
 import { navList } from "config/others";
 import { Nav } from ".";
 
 export default defineComponent({
-  components: {
-    ElMenu,
-    ElMenuItem,
-    ElSubMenu,
-  },
   setup() {
     const barList: Nav[] = navList;
 

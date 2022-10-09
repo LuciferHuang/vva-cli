@@ -4,7 +4,6 @@
       ref="filterForm"
       :inline="true"
       :model="proxy.form"
-      size="small"
       label-width="77px"
     >
       <el-form-item
@@ -55,20 +54,13 @@
       </el-form-item>
     </el-form>
     <div class="filter-group-btn">
-      <el-button size="small" type="primary" @click="search">搜 索</el-button>
-      <el-button size="small" @click="reset">重 置</el-button>
+      <el-button type="primary" @click="search">搜 索</el-button>
+      <el-button @click="reset">重 置</el-button>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { ref, defineComponent, reactive, watch, PropType } from "vue";
-import {
-  ElForm,
-  ElFormItem,
-  ElInput,
-  ElDatePicker,
-  ElButton,
-} from "element-plus";
 import smartBox from "components/smartBox/index.vue";
 import selectBox from "components/selectBox/index.vue";
 import { cusToRefs } from "helper/utils";
@@ -76,11 +68,6 @@ import { FilterItem } from "components/filterGroup/index";
 
 export default defineComponent({
   components: {
-    ElForm,
-    ElFormItem,
-    ElInput,
-    ElDatePicker,
-    ElButton,
     smartBox,
     selectBox,
   },

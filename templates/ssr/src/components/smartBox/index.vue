@@ -23,16 +23,11 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, reactive, watch } from "vue";
-import { ElSelect, ElOption } from "element-plus";
 import { parseValueByPath } from "helper/utils";
 import http from "helper/http";
 import { InputConfig } from ".";
 
 export default defineComponent({
-  components: {
-    ElSelect,
-    ElOption,
-  },
   props: {
     modelValue: { default: "" },
     config: { type: Object as PropType<InputConfig>},

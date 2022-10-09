@@ -42,7 +42,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, watch, reactive,PropType } from "vue";
-import { ElPopover, ElPagination, ElAffix } from "element-plus";
 import { DEFAULT_PAGE_SIZE } from "config/others";
 import { picerr } from "helper/utils";
 import tableView from "components/tableView/index.vue";
@@ -51,9 +50,6 @@ import { ColumnConfig } from "components/tableView/index";
 export default defineComponent({
   components: {
     tableView,
-    ElPopover,
-    ElPagination,
-    ElAffix,
   },
   props: {
     pagger: {

@@ -26,15 +26,11 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ElPopover } from "element-plus";
 import { delCookie, getCookie } from "helper/utils";
 import { USER_INFOR_KEY, USER_TOKEN_KEY } from "config/others";
 import { UserInfor } from ".";
 
 export default defineComponent({
-  components: {
-    ElPopover,
-  },
   setup() {
     let userInfor: UserInfor;
     try {

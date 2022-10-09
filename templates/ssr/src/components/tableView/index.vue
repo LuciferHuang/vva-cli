@@ -87,7 +87,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, watch, reactive, onMounted, PropType } from "vue";
-import { ElTable, ElTableColumn, ElButton } from "element-plus";
 import copyPop from "components/copyPop/index.vue";
 import { cusToRefs } from "helper/utils";
 import useFilter from "./hooks/useFilter";
@@ -96,9 +95,6 @@ import { ColumnConfig, BtnCondition } from "./index";
 
 export default defineComponent({
   components: {
-    ElTable,
-    ElTableColumn,
-    ElButton,
     copyPop,
   },
   props: {

@@ -30,17 +30,11 @@ import {
   ref,
   watch,
 } from "vue";
-import { ElSelect, ElOption, ElCheckbox } from "element-plus";
 import { Option } from "helper/types";
 import http from "helper/http";
 import { OptionConfig } from "./index";
 
 export default defineComponent({
-  components: {
-    ElSelect,
-    ElCheckbox,
-    ElOption,
-  },
   props: {
     value: { default: "" },
     multiple: { type: Boolean, default: false },

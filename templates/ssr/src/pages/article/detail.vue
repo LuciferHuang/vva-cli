@@ -58,7 +58,6 @@
 </template>
 <script lang="ts">
 import { defineAsyncComponent, defineComponent } from "vue";
-import { ElAffix, ElButton, ElTag } from "element-plus";
 import useDetailConfig from "./hooks/useDetailConfig";
 import useDetailDatas from "./hooks/useDetailDatas";
 import useDetailFilter from "./hooks/useDetailFilter";
@@ -72,9 +71,6 @@ export default defineComponent({
     panel: defineAsyncComponent(
       () => import("components/panel/index.vue")
     ),
-    ElAffix,
-    ElButton,
-    ElTag,
   },
   setup() {
     const { state, fetchDetail, articleId } = useDetailDatas();

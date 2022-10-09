@@ -27,7 +27,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, PropType, reactive, ref, watch } from "vue";
-import { ElDialog, ElButton } from "element-plus";
 import formGroup from "components/formGroup/index.vue";
 import { FormItem } from "components/formGroup/index";
 import { cusToRefs, parseValueByPath } from "helper/utils";
@@ -35,8 +34,6 @@ import http from "helper/http";
 
 export default defineComponent({
   components: {
-    ElDialog,
-    ElButton,
     formGroup,
   },
   props: {

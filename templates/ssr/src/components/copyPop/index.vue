@@ -16,13 +16,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, watch } from "vue";
-import { ElPopover } from "element-plus";
 import { copy } from "helper/utils";
 
 export default defineComponent({
-  components: {
-    ElPopover,
-  },
   props: {
     title: { type: String, default: "复制" },
     duration: { type: Number, default: 2000 },

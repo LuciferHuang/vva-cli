@@ -72,7 +72,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
-import { ElSelect, ElOption } from "element-plus";
 import panel from "components/panel/index.vue";
 import { formateNum } from "helper/utils";
 import usePageChart from "./hooks/usePageChart";
@@ -82,9 +81,7 @@ import useTotalChart from "./hooks/useTotalChart";
 
 export default defineComponent({
   components: {
-    panel,
-    ElSelect,
-    ElOption,
+    panel
   },
   setup() {
     const chartColors = ["#37A2DA", "#67E0E3", "#9FE6B8", "#32C5E9", "#FFDB5C"];

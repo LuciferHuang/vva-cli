@@ -24,6 +24,10 @@ vva-cli
 npx vva-cli
 ```
 
+## node version
+
+14+
+
 ## Templates
 
 ### CSR
